@@ -9,3 +9,5 @@ order_id,user_id,amount,status,order_date
 108,1,59.99,completed,2023-10-05
 109,3,15.99,pending,2023-10-01
 110,4,799.99,completed,2023-09-30
+111,5,891.59,completed,2023-10-01
+112,5,991.39,completed,2023-10-02

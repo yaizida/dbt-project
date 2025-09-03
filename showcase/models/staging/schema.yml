@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Стадия заказов. Сырые данные о заказах после базовой очистки и типизации."
+    columns:
+      - name: order_id
+        description: "Уникальный идентификатор заказа. Первичный ключ таблицы."
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: "Идентификатор пользователя, совершившего заказ"
+
+      - name: order_amount
+        description: "Сумма заказа"
+
+      - name: order_status
+        description: "Текущий статус заказа"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['pending', 'completed', 'cancelled', 'shipped']
+              config:
+                severity: warn
+
+      - name: order_date
+        description: "Дата создания заказа"
+        tests:
+          - not_null
+
+      - name: load_dttm
+        description: "Метка времени загрузки данных"
